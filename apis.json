@@ -1,0 +1,90 @@
+{
+    "name": "Shapeways",
+    "description": "Design, Prototype, Buy and Sell custom products at Shapeways; The world's largest online 3D Printing Service, Community and Marketplace.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/681-shapeways.jpg",
+    "tags": [
+        "3d printing",
+        "api lifeycle",
+        "have api",
+        "marketplaces"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/shapeways\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Shapeways",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/681-shapeways.jpg",
+            "humanURL": "https:\/\/www.shapeways.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/shapeways-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Base",
+            "url": "http:\/\/api.shapeways.com\/"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/www.shapeways.com\/blog\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/www.shapeways.com\/blog\/rss.php?version=2.0"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/shapeways"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/shapeways"
+        },
+        {
+            "type": "Developers",
+            "url": "http:\/\/www.shapeways.com\/api"
+        },
+        {
+            "type": "Email",
+            "url": "service@shapeways.com"
+        },
+        {
+            "type": "Email",
+            "url": "content@shapeways.com"
+        },
+        {
+            "type": "Email",
+            "url": "content-precheck@shapeways.com"
+        },
+        {
+            "type": "Email",
+            "url": "legal@shapeways.com"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/Shapeways"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/#!\/Shapeways"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.shapeways.com"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/www.shapeways.com"
+        }
+    ]
+}
