@@ -1,0 +1,117 @@
+openapi: 3.0.3
+info:
+  title: Shapeways Cart API
+  version: v1
+  description: 'The Shapeways API provides programmatic access to Shapeways'' on-demand 3D printing and additive manufacturing platform: browse the material catalog, upload and manage 3D models, retrieve shipping options, and place and track manufacturing orders. Authentication is OAuth 2.0 (client_credentials for single-account apps, authorization_code + refresh_token for multi-user apps). Endpoints are versioned with a trailing /v1 path segment. This document is a faithful transcription of the public API reference published at https://developers.shapeways.com/ — it is not an official Shapeways OpenAPI document.'
+  x-provenance:
+    generated: '2026-07-21'
+    method: generated
+    source: https://developers.shapeways.com/api-reference
+  contact:
+    name: Shapeways API
+    email: api@shapeways.com
+    url: https://developers.shapeways.com/
+servers:
+- url: https://api.shapeways.com
+  description: Production
+security:
+- oauth2: []
+tags:
+- name: Cart
+  description: Shipping options for a destination.
+paths:
+  /cart/shipping-options/v1:
+    get:
+      operationId: getShippingOptions
+      tags:
+      - Cart
+      summary: Get shipping options
+      parameters:
+      - name: country
+        in: query
+        required: true
+        description: Two-letter ISO 3166 country code.
+        schema:
+          type: string
+      - name: zipCode
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Available shipping options.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingOptions'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+components:
+  schemas:
+    Result:
+      type: object
+      description: Standard response envelope. All responses carry a result field.
+      properties:
+        result:
+          type: string
+          description: success or failure.
+        nextActionSuggestions:
+          type: object
+    ShippingOption:
+      type: object
+      properties:
+        shippingOptionId:
+          type: integer
+        price:
+          type: number
+        name:
+          type: string
+        inTransitDaysMin:
+          type: integer
+        inTransitDaysMax:
+          type: integer
+    ShippingOptions:
+      type: object
+      properties:
+        result:
+          type: string
+        shippingOptions:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ShippingOption'
+  responses:
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 bearer token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    BadRequest:
+      description: Malformed or invalid request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    TooManyRequests:
+      description: Rate limit exceeded.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0. client_credentials for single-account apps; authorization_code (+ refresh_token) for multi-user apps.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.shapeways.com/oauth2/token
+          scopes: {}
+        authorizationCode:
+          authorizationUrl: https://api.shapeways.com/oauth2/authorize
+          tokenUrl: https://api.shapeways.com/oauth2/token
+          scopes: {}
