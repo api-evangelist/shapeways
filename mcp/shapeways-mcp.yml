@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/shapeways-openapi.yml
+note: >-
+  No official Shapeways MCP server was found. This is a candidate tool surface
+  derived one-to-one from the documented API operations.
+server:
+  name: shapeways
+  transport: http
+tools:
+  - name: list_materials
+    description: List all available Shapeways materials.
+    source_operation: openapi/shapeways-openapi.yml#listMaterials
+  - name: get_material
+    description: Get information on a single material.
+    source_operation: openapi/shapeways-openapi.yml#getMaterial
+  - name: upload_model
+    description: Upload a 3D model file.
+    source_operation: openapi/shapeways-openapi.yml#uploadModel
+  - name: list_models
+    description: List the account's models.
+    source_operation: openapi/shapeways-openapi.yml#listModels
+  - name: get_model
+    description: Get information on a single model.
+    source_operation: openapi/shapeways-openapi.yml#getModel
+  - name: delete_model
+    description: Delete a model.
+    source_operation: openapi/shapeways-openapi.yml#deleteModel
+  - name: place_order
+    description: Place a manufacturing order.
+    source_operation: openapi/shapeways-openapi.yml#placeOrder
+  - name: list_orders
+    description: List orders.
+    source_operation: openapi/shapeways-openapi.yml#listOrders
+  - name: get_order
+    description: Get order information.
+    source_operation: openapi/shapeways-openapi.yml#getOrder
+  - name: get_shipping_options
+    description: Get shipping options for a destination country.
+    source_operation: openapi/shapeways-openapi.yml#getShippingOptions

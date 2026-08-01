@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/Shapeways
+packages:
+  - language: php
+    registry: github
+    name: shapeways-api
+    url: https://github.com/Shapeways/shapeways-api
+    install: git clone https://github.com/Shapeways/shapeways-api
+    official: true
+  - language: php
+    registry: github
+    name: php-shapeways
+    url: https://github.com/Shapeways/php-shapeways
+    install: git clone https://github.com/Shapeways/php-shapeways
+    official: true
+  - language: python
+    registry: github
+    name: python-shapeways
+    url: https://github.com/Shapeways/python-shapeways
+    install: git clone https://github.com/Shapeways/python-shapeways
+    official: true
+  - language: javascript
+    registry: github
+    name: node-shapeways
+    url: https://github.com/Shapeways/node-shapeways
+    install: npm install shapeways
+    official: true
+  - language: go
+    registry: github
+    name: go-shapeways
+    url: https://github.com/Shapeways/go-shapeways
+    install: go get github.com/Shapeways/go-shapeways
+    official: true
+  - language: cpp
+    registry: github
+    name: cpp-shapeways
+    url: https://github.com/Shapeways/cpp-shapeways
+    install: git clone https://github.com/Shapeways/cpp-shapeways
+    official: true
+notes: >-
+  Official Shapeways API reference client libraries, published under the
+  github.com/Shapeways organization (contact api@shapeways.com). Distributed as
+  source repositories rather than package-registry artifacts.

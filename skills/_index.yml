@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/shapeways-openapi.yml
+skills:
+  - file: shapeways-upload-and-order.md
+    name: Upload a model and place a Shapeways order
+    api: openapi/shapeways-openapi.yml
+    operations: [uploadModel, listMaterials, getShippingOptions, placeOrder, getOrder]
+  - file: shapeways-manage-models.md
+    name: Manage Shapeways 3D models
+    api: openapi/shapeways-openapi.yml
+    operations: [listModels, getModel, deleteModel, getMaterial]

@@ -1,9 +1,29 @@
 aid: shapeways
 name: Shapeways
-description: Shapeways is a company surfaced as a portfolio company of a16z, index-ventures, lux-capital,
-  union-square-ventures and added to the API Evangelist network as a stub for enrichment. This profile
-  is a lead awaiting the enrichment pipeline.
+description: >-
+  Shapeways is an on-demand 3D printing and additive-manufacturing platform that
+  turns digital 3D models into physical parts across 12 additive technologies and
+  40+ materials, serving over one million customers in 180+ countries as a
+  turnkey manufacturing partner for prototyping, production, and lifecycle
+  support. Its OAuth 2.0 REST API (base URL https://api.shapeways.com) lets
+  applications browse the material catalog, upload and manage 3D models, retrieve
+  shipping options, and place and track manufacturing orders. Endpoints are
+  versioned with a trailing /v1 path segment; official client libraries are
+  published for PHP, Python, JavaScript, Go, and C++.
 url: https://raw.githubusercontent.com/api-evangelist/shapeways/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: http://www.shapeways.com/wp-content/uploads/2021/03/SW-Thumbnail-Horizontal-1.jpg
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,19 +31,121 @@ x-backed-by:
 - index-ventures
 - lux-capital
 - union-square-ventures
-x-tier: stub
+x-tier: profiled
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1
 tags:
 - Company
-apis: []
+- 3D Printing
+- Additive Manufacturing
+- Manufacturing
+- Prototyping
+- Hardware
+- Fulfillment
+- eCommerce
+apis:
+- aid: shapeways:shapeways-cart-api
+  name: Shapeways Cart API
+  description: Shipping options for a destination.
+  humanURL: https://developers.shapeways.com/
+  baseURL: https://api.shapeways.com
+  tags:
+  - Cart
+  properties:
+  - type: OpenAPI
+    url: openapi/shapeways-cart-api-openapi.yml
+- aid: shapeways:shapeways-materials-api
+  name: Shapeways Materials API
+  description: The Shapeways material catalog (40+ materials).
+  humanURL: https://developers.shapeways.com/
+  baseURL: https://api.shapeways.com
+  tags:
+  - Materials
+  properties:
+  - type: OpenAPI
+    url: openapi/shapeways-materials-api-openapi.yml
+- aid: shapeways:shapeways-models-api
+  name: Shapeways Models API
+  description: Upload, list, retrieve, and delete 3D models.
+  humanURL: https://developers.shapeways.com/
+  baseURL: https://api.shapeways.com
+  tags:
+  - Models
+  properties:
+  - type: OpenAPI
+    url: openapi/shapeways-models-api-openapi.yml
+- aid: shapeways:shapeways-orders-api
+  name: Shapeways Orders API
+  description: Place and track manufacturing orders.
+  humanURL: https://developers.shapeways.com/
+  baseURL: https://api.shapeways.com
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/shapeways-orders-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DeveloperPortal
+  url: https://developers.shapeways.com/
+- type: Documentation
+  url: https://developers.shapeways.com/getting-started
+- type: APIReference
+  url: https://developers.shapeways.com/api-reference
+- type: GettingStarted
+  url: https://developers.shapeways.com/quick-start
+- type: Support
+  url: https://support.shapeways.com/
+- type: Blog
+  url: https://www.shapeways.com/blog
+- type: GitHubOrganization
+  url: https://github.com/Shapeways
+- type: SignUp
+  url: https://auth.shapeways.com/register
+- type: Login
+  url: https://auth.shapeways.com/login
+- type: TermsOfService
+  url: https://www.shapeways.com/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.shapeways.com/privacy-statement
+- type: Authentication
+  url: authentication/shapeways-authentication.yml
+- type: OAuthScopes
+  url: scopes/shapeways-scopes.yml
+- type: AgenticAccess
+  url: agentic-access/shapeways-agentic-access.yml
+- type: DomainSecurity
+  url: security/shapeways-domain-security.yml
+- type: Packages
+  url: packages/shapeways-packages.yml
+- type: SDKs
+  url: packages/shapeways-packages.yml
+- type: Conventions
+  url: conventions/shapeways-conventions.yml
+- type: ErrorCatalog
+  url: errors/shapeways-problem-types.yml
+- type: MCPServer
+  url: mcp/shapeways-mcp.yml
+- type: LLMsTxt
+  url: llms/shapeways-llms.txt
+- type: Lifecycle
+  url: lifecycle/shapeways-lifecycle.yml
+- type: Conformance
+  url: conformance/shapeways-conformance.yml
+- type: DataModel
+  url: data-model/shapeways-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
 - type: Website
-  url: http://shapeways.com
+  url: https://www.shapeways.com

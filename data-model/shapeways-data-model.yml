@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/shapeways-openapi.yml
+entities:
+  - name: Material
+    id: materialId
+    detail: A printable material in the Shapeways catalog.
+  - name: Model
+    id: modelId
+    detail: An uploaded 3D model, versioned by modelVersion.
+  - name: Order
+    id: orderId
+    detail: A manufacturing order composed of one or more order items.
+  - name: OrderItem
+    detail: A model + material + quantity line within an order.
+  - name: ShippingOption
+    id: shippingOptionId
+    detail: A shipping method/price for a destination.
+relationships:
+  - from: Model
+    to: Material
+    type: has_many
+    via: materials
+    detail: A model declares the materials it can be printed in.
+  - from: Model
+    to: Material
+    type: belongs_to
+    via: defaultMaterialId
+    detail: A model has a default material.
+  - from: OrderItem
+    to: Model
+    type: belongs_to
+    via: modelId
+  - from: OrderItem
+    to: Material
+    type: belongs_to
+    via: materialId
+  - from: Order
+    to: OrderItem
+    type: has_many
+    via: items
+  - from: Order
+    to: ShippingOption
+    type: belongs_to
+    via: shippingOption

@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Shapeways API
+  version: 1.0.0
+extends: openapi/shapeways-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-21'
+      x-apievangelist-provenance: >-
+        Transcribed from the public developer reference at
+        developers.shapeways.com; not an official Shapeways OpenAPI.
+  - target: $.info
+    update:
+      x-apievangelist-artifacts:
+        authentication: authentication/shapeways-authentication.yml
+        conventions: conventions/shapeways-conventions.yml
+        errors: errors/shapeways-problem-types.yml
+        data_model: data-model/shapeways-data-model.yml
+        packages: packages/shapeways-packages.yml

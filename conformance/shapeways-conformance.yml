@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/shapeways-openapi.yml
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: openapi securityScheme type oauth2 (clientCredentials + authorizationCode flows)
+  - id: oidc
+    conforms: false
+    evidence: no openid-configuration discovery document; OAuth 2.0 only
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: errors use a result:failure envelope, not application/problem+json
+  - id: rfc8594-sunset
+    conforms: false
+    evidence: no Sunset/Deprecation header policy published
+  - id: json-api
+    conforms: false
+  - id: pagination
+    conforms: true
+    evidence: page-number pagination on listModels; limit pagination on getOrder

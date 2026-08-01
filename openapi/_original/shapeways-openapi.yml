@@ -1,0 +1,396 @@
+openapi: 3.0.3
+info:
+  title: Shapeways API
+  version: v1
+  description: >-
+    The Shapeways API provides programmatic access to Shapeways' on-demand 3D
+    printing and additive manufacturing platform: browse the material catalog,
+    upload and manage 3D models, retrieve shipping options, and place and track
+    manufacturing orders. Authentication is OAuth 2.0 (client_credentials for
+    single-account apps, authorization_code + refresh_token for multi-user
+    apps). Endpoints are versioned with a trailing /v1 path segment. This
+    document is a faithful transcription of the public API reference published
+    at https://developers.shapeways.com/ — it is not an official Shapeways
+    OpenAPI document.
+  x-provenance:
+    generated: '2026-07-21'
+    method: generated
+    source: https://developers.shapeways.com/api-reference
+  contact:
+    name: Shapeways API
+    email: api@shapeways.com
+    url: https://developers.shapeways.com/
+servers:
+  - url: https://api.shapeways.com
+    description: Production
+security:
+  - oauth2: []
+tags:
+  - name: Materials
+    description: The Shapeways material catalog (40+ materials).
+  - name: Models
+    description: Upload, list, retrieve, and delete 3D models.
+  - name: Orders
+    description: Place and track manufacturing orders.
+  - name: Cart
+    description: Shipping options for a destination.
+paths:
+  /materials/v1:
+    get:
+      operationId: listMaterials
+      tags: [Materials]
+      summary: List materials
+      description: Retrieve information on all available Shapeways materials.
+      responses:
+        '200':
+          description: A list of materials.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MaterialList' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+  /materials/{materialId}/v1:
+    get:
+      operationId: getMaterial
+      tags: [Materials]
+      summary: Get material information
+      description: Retrieve information on a single material by id.
+      parameters:
+        - name: materialId
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Material detail.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Material' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+  /models/v1:
+    post:
+      operationId: uploadModel
+      tags: [Models]
+      summary: Upload a model
+      description: Upload a 3D model file to the authenticated account.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ModelUpload' }
+      responses:
+        '200':
+          description: The uploaded model.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Model' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+    get:
+      operationId: listModels
+      tags: [Models]
+      summary: List models
+      description: List the authenticated account's models, 36 per page.
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema: { type: integer }
+      responses:
+        '200':
+          description: A page of models.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ModelList' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+  /models/{modelId}/v1:
+    get:
+      operationId: getModel
+      tags: [Models]
+      summary: Get model information
+      parameters:
+        - name: modelId
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Model detail.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Model' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+    delete:
+      operationId: deleteModel
+      tags: [Models]
+      summary: Delete a model
+      parameters:
+        - name: modelId
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Deletion result.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Result' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+  /orders/v1:
+    post:
+      operationId: placeOrder
+      tags: [Orders]
+      summary: Place an order
+      description: Place a manufacturing order for one or more models.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/OrderRequest' }
+      responses:
+        '200':
+          description: The placed order.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OrderPlaced' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+    get:
+      operationId: listOrders
+      tags: [Orders]
+      summary: List orders
+      parameters:
+        - name: orderIds
+          in: query
+          required: false
+          description: Comma-separated list of order ids.
+          schema: { type: string }
+      responses:
+        '200':
+          description: Orders and their status.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OrderList' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+  /orders/{orderId}/v1:
+    get:
+      operationId: getOrder
+      tags: [Orders]
+      summary: Get order information
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: limit
+          in: query
+          required: false
+          description: Max results (max 100, default 20).
+          schema: { type: integer, default: 20, maximum: 100 }
+      responses:
+        '200':
+          description: Order detail.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OrderList' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+  /cart/shipping-options/v1:
+    get:
+      operationId: getShippingOptions
+      tags: [Cart]
+      summary: Get shipping options
+      parameters:
+        - name: country
+          in: query
+          required: true
+          description: Two-letter ISO 3166 country code.
+          schema: { type: string }
+        - name: zipCode
+          in: query
+          required: false
+          schema: { type: string }
+      responses:
+        '200':
+          description: Available shipping options.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ShippingOptions' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0. client_credentials for single-account apps; authorization_code (+ refresh_token) for multi-user apps.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.shapeways.com/oauth2/token
+          scopes: {}
+        authorizationCode:
+          authorizationUrl: https://api.shapeways.com/oauth2/authorize
+          tokenUrl: https://api.shapeways.com/oauth2/token
+          scopes: {}
+  responses:
+    BadRequest:
+      description: Malformed or invalid request.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Result' }
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 bearer token.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Result' }
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Result' }
+    TooManyRequests:
+      description: Rate limit exceeded.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Result' }
+  schemas:
+    Result:
+      type: object
+      description: Standard response envelope. All responses carry a result field.
+      properties:
+        result:
+          type: string
+          description: success or failure.
+        nextActionSuggestions:
+          type: object
+    Material:
+      type: object
+      properties:
+        result: { type: string }
+        materialId: { type: integer }
+        title: { type: string }
+        supportsColorFiles: { type: boolean }
+        printerId: { type: integer }
+        swatch: { type: string }
+        restrictions: { type: object }
+        rejections: { type: object }
+        nextActionSuggestions: { type: object }
+    MaterialList:
+      type: object
+      properties:
+        result: { type: string }
+        materials: { type: object }
+        nextActionSuggestions: { type: object }
+    ModelUpload:
+      type: object
+      required: [file, fileName, hasRightsToModel, acceptTermsAndConditions]
+      properties:
+        file: { type: string, description: Base64-encoded model file. }
+        fileName: { type: string }
+        hasRightsToModel: { type: boolean }
+        acceptTermsAndConditions: { type: boolean }
+        uploadScale: { type: number }
+        title: { type: string }
+        description: { type: string }
+        isPublic: { type: boolean }
+        isClaimable: { type: boolean }
+        isForSale: { type: boolean }
+        isDownloadable: { type: boolean }
+        tags: { type: array, items: { type: string } }
+        materials: { type: object }
+        defaultMaterialId: { type: integer }
+        categories: { type: array, items: { type: integer } }
+    Model:
+      type: object
+      properties:
+        result: { type: string }
+        modelId: { type: integer }
+        modelVersion: { type: integer }
+        title: { type: string }
+        fileName: { type: string }
+        contentLength: { type: integer }
+        fileMd5Checksum: { type: string }
+        secretKey: { type: string }
+        claimKey: { type: string }
+        urls: { type: object }
+        spin: { type: string }
+        printable: { type: object }
+        materials: { type: object }
+        restrictions: { type: object }
+        nextActionSuggestions: { type: object }
+    ModelList:
+      type: object
+      properties:
+        result: { type: string }
+        models: { type: array, items: { $ref: '#/components/schemas/Model' } }
+        nextActionSuggestions: { type: object }
+    OrderItem:
+      type: object
+      properties:
+        modelId: { type: integer }
+        materialId: { type: integer }
+        quantity: { type: integer }
+    OrderRequest:
+      type: object
+      required: [firstName, lastName, country, state, city, address1, zipCode, phoneNumber, items, paymentMethod, shippingOption]
+      properties:
+        firstName: { type: string }
+        lastName: { type: string }
+        country: { type: string }
+        state: { type: string }
+        city: { type: string }
+        address1: { type: string }
+        address2: { type: string }
+        address3: { type: string }
+        zipCode: { type: string }
+        phoneNumber: { type: string }
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/OrderItem' }
+        paymentMethod: { type: string }
+        shippingOption: { type: string }
+        incentives: { type: object }
+        paymentVerificationId: { type: string }
+        manufacturingSpeed: { type: string }
+        refNumber: { type: string }
+        metadata: { type: object }
+    OrderPlaced:
+      type: object
+      properties:
+        result: { type: string }
+        orderId: { type: integer }
+        productionOrderIds: { type: array, items: { type: integer } }
+        nextActionSuggestions: { type: object }
+    OrderList:
+      type: object
+      properties:
+        result: { type: string }
+        ordersCount: { type: integer }
+        ordersStatus: { type: object }
+        ordersInfo: { type: object }
+    ShippingOption:
+      type: object
+      properties:
+        shippingOptionId: { type: integer }
+        price: { type: number }
+        name: { type: string }
+        inTransitDaysMin: { type: integer }
+        inTransitDaysMax: { type: integer }
+    ShippingOptions:
+      type: object
+      properties:
+        result: { type: string }
+        shippingOptions:
+          type: object
+          additionalProperties: { $ref: '#/components/schemas/ShippingOption' }

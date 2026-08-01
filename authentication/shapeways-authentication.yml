@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: https://developers.shapeways.com/getting-started
+docs: https://developers.shapeways.com/getting-started
+summary:
+  types: [oauth2]
+  oauth2_flows: [clientCredentials, authorizationCode]
+  token_type: bearer
+  token_ttl_seconds: 3600
+schemes:
+  - name: oauth2
+    type: oauth2
+    description: >-
+      OAuth 2.0. Single-account apps (the app owner's own account) use the
+      client_credentials grant with a Client ID + Client Secret obtained from
+      the Manage Apps dashboard. Apps acting on behalf of other Shapeways users
+      use the authorization_code grant with a redirect_uri, then exchange the
+      returned code for an access token; the refresh_token grant renews expired
+      access tokens. Access tokens are bearer tokens with expires_in 3600.
+    flows:
+      - flow: clientCredentials
+        tokenUrl: https://api.shapeways.com/oauth2/token
+        scopes: 0
+      - flow: authorizationCode
+        authorizationUrl: https://api.shapeways.com/oauth2/authorize
+        tokenUrl: https://api.shapeways.com/oauth2/token
+        scopes: 0
+    sources: [openapi/shapeways-openapi.yml]
+app_management: https://developers.shapeways.com/manage-apps

@@ -1,0 +1,20 @@
+{
+  "provider": "shapeways",
+  "sources": [
+    "shapeways-cart-api-openapi.yml",
+    "shapeways-materials-api-openapi.yml",
+    "shapeways-models-api-openapi.yml",
+    "shapeways-orders-api-openapi.yml"
+  ],
+  "outputs": [
+    "shapeways-cart-api-openapi.yml",
+    "shapeways-materials-api-openapi.yml",
+    "shapeways-models-api-openapi.yml",
+    "shapeways-orders-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

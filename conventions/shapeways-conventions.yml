@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: searched
+source: https://developers.shapeways.com/api-reference
+authentication:
+  style: oauth2-bearer
+  detail: >-
+    OAuth 2.0 bearer access token in the Authorization header. See
+    authentication/shapeways-authentication.yml.
+versioning:
+  scheme: per-endpoint-path-suffix
+  detail: >-
+    Each endpoint path carries a trailing /v1 version segment
+    (e.g. /materials/v1, /models/{modelId}/v1). Versioning is per-resource, not
+    a global base-path version.
+  cross_ref: lifecycle/shapeways-lifecycle.yml
+pagination:
+  models:
+    style: page-number
+    param: page
+    page_size: 36
+    response_field: models
+  orders:
+    style: limit
+    param: limit
+    default: 20
+    max: 100
+response_envelope:
+  detail: >-
+    Every response is a JSON object carrying a top-level `result` field
+    (success/failure) plus resource fields. Many responses also include a
+    `nextActionSuggestions` object hinting at follow-up API calls.
+  fields: [result, nextActionSuggestions]
+idempotency:
+  supported: false
+  detail: >-
+    The public API reference does not document an idempotency key or safe-retry
+    contract for write operations (uploadModel, placeOrder). Retries are not
+    guaranteed to be idempotent.
+error_handling:
+  detail: >-
+    Errors are signaled via HTTP status codes plus a `result: failure` envelope.
+    See errors/shapeways-problem-types.yml.
+  cross_ref: errors/shapeways-problem-types.yml
+rate_limiting:
+  detail: >-
+    The API enforces rate limits (HTTP 429 observed on automated access); the
+    public reference does not publish specific quotas or RateLimit headers.

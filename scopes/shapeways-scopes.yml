@@ -1,0 +1,15 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/shapeways-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/shapeways-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.shapeways.com/oauth2/token
+  - flow: authorizationCode
+    authorizationUrl: https://api.shapeways.com/oauth2/authorize
+    tokenUrl: https://api.shapeways.com/oauth2/token
+  description: OAuth 2.0. client_credentials for single-account apps; authorization_code (+
+    refresh_token) for multi-user apps.
+scopes: []

@@ -1,0 +1,37 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/shapeways-openapi.yml
+format: envelope
+envelope:
+  detail: >-
+    Shapeways does not use RFC 9457 problem+json. Errors are conveyed through
+    the standard response envelope: a top-level `result` field set to `failure`,
+    alongside the HTTP status code. Not a documented per-error type registry;
+    these are the HTTP statuses observed across the documented operations.
+problems:
+  - status: 400
+    title: Bad request
+    meaning: Malformed request or missing/invalid required parameters.
+    source_operations:
+      - openapi/shapeways-openapi.yml#uploadModel
+      - openapi/shapeways-openapi.yml#placeOrder
+      - openapi/shapeways-openapi.yml#getShippingOptions
+  - status: 401
+    title: Unauthorized
+    meaning: Missing or invalid OAuth 2.0 bearer access token.
+    source_operations:
+      - openapi/shapeways-openapi.yml#listMaterials
+      - openapi/shapeways-openapi.yml#listModels
+      - openapi/shapeways-openapi.yml#listOrders
+  - status: 404
+    title: Not found
+    meaning: Referenced material, model, or order does not exist.
+    source_operations:
+      - openapi/shapeways-openapi.yml#getMaterial
+      - openapi/shapeways-openapi.yml#getModel
+      - openapi/shapeways-openapi.yml#getOrder
+  - status: 429
+    title: Too many requests
+    meaning: Rate limit exceeded.
+    source_operations:
+      - openapi/shapeways-openapi.yml#listMaterials

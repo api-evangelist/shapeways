@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: searched
+source: https://developers.shapeways.com/
+versioning:
+  scheme: per-endpoint-path-suffix
+  current: v1
+  docs: https://developers.shapeways.com/api-reference
+  detail: >-
+    Each endpoint carries a trailing /v1 segment; the documented API surface is
+    at v1.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: No formal deprecation/Sunset-header policy is published.
+sla:
+  url: null
+  certifications: [ISO 9001:2015, ISO 14001:2015]
+  detail: >-
+    Shapeways publishes ISO 9001:2015 (quality) and ISO 14001:2015
+    (environmental) manufacturing certifications on shapeways.com; no API uptime
+    SLA is published.
+status_page: null
+deprecated_operations: []

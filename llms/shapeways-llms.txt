@@ -1,0 +1,32 @@
+# Shapeways
+
+> Shapeways is an on-demand 3D printing and additive-manufacturing platform. Its OAuth 2.0 REST API lets applications browse the material catalog, upload and manage 3D models, retrieve shipping options, and place and track manufacturing orders. Base URL: https://api.shapeways.com. Endpoints are versioned with a trailing /v1 path segment.
+
+## APIs
+
+- [Shapeways API reference](https://developers.shapeways.com/api-reference): Materials, Models, Orders, and Cart shipping-options endpoints.
+- [Getting started](https://developers.shapeways.com/getting-started): OAuth 2.0 setup, creating an app, first request, placing an order.
+- [Manage apps](https://developers.shapeways.com/manage-apps): obtain Client ID and Client Secret.
+
+## Specs
+
+- [OpenAPI (transcribed)](https://raw.githubusercontent.com/api-evangelist/shapeways/refs/heads/main/openapi/shapeways-openapi.yml)
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/shapeways/refs/heads/main/authentication/shapeways-authentication.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/shapeways/refs/heads/main/conventions/shapeways-conventions.yml)
+- [Error catalog](https://raw.githubusercontent.com/api-evangelist/shapeways/refs/heads/main/errors/shapeways-problem-types.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/shapeways/refs/heads/main/data-model/shapeways-data-model.yml)
+
+## SDKs
+
+- [PHP (shapeways-api)](https://github.com/Shapeways/shapeways-api)
+- [Python (python-shapeways)](https://github.com/Shapeways/python-shapeways)
+- [JavaScript (node-shapeways)](https://github.com/Shapeways/node-shapeways)
+- [Go (go-shapeways)](https://github.com/Shapeways/go-shapeways)
+- [C++ (cpp-shapeways)](https://github.com/Shapeways/cpp-shapeways)
+
+## Docs
+
+- [Developer portal](https://developers.shapeways.com/)
+- [Support](https://support.shapeways.com/)
+- [Website](https://www.shapeways.com/)
+- [GitHub organization](https://github.com/Shapeways)
