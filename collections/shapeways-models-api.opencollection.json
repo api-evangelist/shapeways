@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shapeways Cart Models API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.shapeways.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shapeways.com/models/v1",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List the authenticated account's models, 36 per page."
+        },
+        {
+          "info": {
+            "name": "Upload a model",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shapeways.com/models/v1",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upload a 3D model file to the authenticated account."
+        },
+        {
+          "info": {
+            "name": "Get model information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shapeways.com/models/:modelId/v1",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get model information"
+        },
+        {
+          "info": {
+            "name": "Delete a model",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.shapeways.com/models/:modelId/v1",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a model"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

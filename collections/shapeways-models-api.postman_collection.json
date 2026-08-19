@@ -1,0 +1,999 @@
+{
+  "item": [
+    {
+      "id": "6e67498f-5c5e-405e-8872-2bcff653d949",
+      "name": "Models",
+      "description": {
+        "content": "Upload, list, retrieve, and delete 3D models.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "745a04c2-f8df-46f2-bc89-4d9993f95eb0",
+          "name": "Upload a model",
+          "request": {
+            "name": "Upload a model",
+            "description": {
+              "content": "Upload a 3D model file to the authenticated account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "models",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"file\": \"<string>\",\n  \"fileName\": \"<string>\",\n  \"hasRightsToModel\": \"<boolean>\",\n  \"acceptTermsAndConditions\": \"<boolean>\",\n  \"uploadScale\": \"<number>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"isPublic\": \"<boolean>\",\n  \"isClaimable\": \"<boolean>\",\n  \"isForSale\": \"<boolean>\",\n  \"isDownloadable\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"materials\": \"<object>\",\n  \"defaultMaterialId\": \"<integer>\",\n  \"categories\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "691452e7-d0ca-441e-b985-cbc33d4ee266",
+              "name": "The uploaded model.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"file\": \"<string>\",\n  \"fileName\": \"<string>\",\n  \"hasRightsToModel\": \"<boolean>\",\n  \"acceptTermsAndConditions\": \"<boolean>\",\n  \"uploadScale\": \"<number>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"isPublic\": \"<boolean>\",\n  \"isClaimable\": \"<boolean>\",\n  \"isForSale\": \"<boolean>\",\n  \"isDownloadable\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"materials\": \"<object>\",\n  \"defaultMaterialId\": \"<integer>\",\n  \"categories\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"modelId\": 9109,\n  \"modelVersion\": 7393,\n  \"title\": \"string\",\n  \"fileName\": \"string\",\n  \"contentLength\": 9660,\n  \"fileMd5Checksum\": \"string\",\n  \"secretKey\": \"string\",\n  \"claimKey\": \"string\",\n  \"urls\": {},\n  \"spin\": \"string\",\n  \"printable\": {},\n  \"materials\": {},\n  \"restrictions\": {},\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1648f018-f5e4-459a-848e-a9be8598cc88",
+              "name": "Malformed or invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"file\": \"<string>\",\n  \"fileName\": \"<string>\",\n  \"hasRightsToModel\": \"<boolean>\",\n  \"acceptTermsAndConditions\": \"<boolean>\",\n  \"uploadScale\": \"<number>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"isPublic\": \"<boolean>\",\n  \"isClaimable\": \"<boolean>\",\n  \"isForSale\": \"<boolean>\",\n  \"isDownloadable\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"materials\": \"<object>\",\n  \"defaultMaterialId\": \"<integer>\",\n  \"categories\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5735a736-a5eb-4626-9ea7-a6249319cacd",
+              "name": "Missing or invalid OAuth 2.0 bearer token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"file\": \"<string>\",\n  \"fileName\": \"<string>\",\n  \"hasRightsToModel\": \"<boolean>\",\n  \"acceptTermsAndConditions\": \"<boolean>\",\n  \"uploadScale\": \"<number>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"isPublic\": \"<boolean>\",\n  \"isClaimable\": \"<boolean>\",\n  \"isForSale\": \"<boolean>\",\n  \"isDownloadable\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"materials\": \"<object>\",\n  \"defaultMaterialId\": \"<integer>\",\n  \"categories\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a39bae18-cd8e-4254-8cb8-35c545906131",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"file\": \"<string>\",\n  \"fileName\": \"<string>\",\n  \"hasRightsToModel\": \"<boolean>\",\n  \"acceptTermsAndConditions\": \"<boolean>\",\n  \"uploadScale\": \"<number>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"isPublic\": \"<boolean>\",\n  \"isClaimable\": \"<boolean>\",\n  \"isForSale\": \"<boolean>\",\n  \"isDownloadable\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"materials\": \"<object>\",\n  \"defaultMaterialId\": \"<integer>\",\n  \"categories\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f6cec19-3f56-41e1-9c61-c3c8afbab614",
+          "name": "List models",
+          "request": {
+            "name": "List models",
+            "description": {
+              "content": "List the authenticated account's models, 36 per page.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "models",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef319754-9a10-46b2-afd3-7d3d5b2b5caf",
+              "name": "A page of models.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"models\": [\n    {\n      \"result\": \"string\",\n      \"modelId\": 6300,\n      \"modelVersion\": 6638,\n      \"title\": \"string\",\n      \"fileName\": \"string\",\n      \"contentLength\": 5113,\n      \"fileMd5Checksum\": \"string\",\n      \"secretKey\": \"string\",\n      \"claimKey\": \"string\",\n      \"urls\": {},\n      \"spin\": \"string\",\n      \"printable\": {},\n      \"materials\": {},\n      \"restrictions\": {},\n      \"nextActionSuggestions\": {}\n    },\n    {\n      \"result\": \"string\",\n      \"modelId\": 5020,\n      \"modelVersion\": 402,\n      \"title\": \"string\",\n      \"fileName\": \"string\",\n      \"contentLength\": 3259,\n      \"fileMd5Checksum\": \"string\",\n      \"secretKey\": \"string\",\n      \"claimKey\": \"string\",\n      \"urls\": {},\n      \"spin\": \"string\",\n      \"printable\": {},\n      \"materials\": {},\n      \"restrictions\": {},\n      \"nextActionSuggestions\": {}\n    }\n  ],\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70194cb7-4bae-4a6a-a5be-eecb25f754d5",
+              "name": "Missing or invalid OAuth 2.0 bearer token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77e29e2d-5fc1-4861-a481-60d7c87e6d60",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1572f270-3b95-4be7-8ac4-59c6ab7dc8d6",
+          "name": "Get model information",
+          "request": {
+            "name": "Get model information",
+            "description": {},
+            "url": {
+              "path": [
+                "models",
+                ":modelId",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "modelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "512bfa91-d239-4ebd-8890-b641f4bacf42",
+              "name": "Model detail.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    ":modelId",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"modelId\": 9109,\n  \"modelVersion\": 7393,\n  \"title\": \"string\",\n  \"fileName\": \"string\",\n  \"contentLength\": 9660,\n  \"fileMd5Checksum\": \"string\",\n  \"secretKey\": \"string\",\n  \"claimKey\": \"string\",\n  \"urls\": {},\n  \"spin\": \"string\",\n  \"printable\": {},\n  \"materials\": {},\n  \"restrictions\": {},\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a1b9687-40e8-459f-ada6-176836b65876",
+              "name": "Missing or invalid OAuth 2.0 bearer token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    ":modelId",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fef1ff1-a722-4cd5-8b78-424c183cf2ce",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    ":modelId",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87463fe5-b121-4a30-90cc-d28b540e516c",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    ":modelId",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fae0340-eeda-4655-9fe4-6afde6712f7c",
+          "name": "Delete a model",
+          "request": {
+            "name": "Delete a model",
+            "description": {},
+            "url": {
+              "path": [
+                "models",
+                ":modelId",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "modelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9377ab56-ef35-4e95-994b-346aca5f00bc",
+              "name": "Deletion result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    ":modelId",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f9886c0-7962-4427-8197-a798f531affb",
+              "name": "Missing or invalid OAuth 2.0 bearer token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    ":modelId",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c685e62-d104-445e-9bb3-901ee8522fe4",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    ":modelId",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76067f58-7080-44d2-a62b-13788a3f3a41",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    ":modelId",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.shapeways.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.shapeways.com/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3e0691ef-1b35-4416-9bc3-a040dfd4245f",
+    "name": "Shapeways Cart Models API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shapeways API provides programmatic access to Shapeways' on-demand 3D printing and additive manufacturing platform: browse the material catalog, upload and manage 3D models, retrieve shipping options, and place and track manufacturing orders. Authentication is OAuth 2.0 (client_credentials for single-account apps, authorization_code + refresh_token for multi-user apps). Endpoints are versioned with a trailing /v1 path segment. This document is a faithful transcription of the public API reference published at https://developers.shapeways.com/ — it is not an official Shapeways OpenAPI document.\n\nContact Support:\n Name: Shapeways API\n Email: api@shapeways.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,770 @@
+{
+  "item": [
+    {
+      "id": "a3cc133a-ed06-48e3-9c5d-d87eb1a64fef",
+      "name": "Orders",
+      "description": {
+        "content": "Place and track manufacturing orders.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8da9661c-d20d-4bc9-b758-8519c16c2dfa",
+          "name": "Place an order",
+          "request": {
+            "name": "Place an order",
+            "description": {
+              "content": "Place a manufacturing order for one or more models.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"country\": \"<string>\",\n  \"state\": \"<string>\",\n  \"city\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"zipCode\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"items\": [\n    {\n      \"modelId\": \"<integer>\",\n      \"materialId\": \"<integer>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"modelId\": \"<integer>\",\n      \"materialId\": \"<integer>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"paymentMethod\": \"<string>\",\n  \"shippingOption\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"address3\": \"<string>\",\n  \"incentives\": \"<object>\",\n  \"paymentVerificationId\": \"<string>\",\n  \"manufacturingSpeed\": \"<string>\",\n  \"refNumber\": \"<string>\",\n  \"metadata\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98a11bde-6e54-4379-b09a-4894d74b41ee",
+              "name": "The placed order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"country\": \"<string>\",\n  \"state\": \"<string>\",\n  \"city\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"zipCode\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"items\": [\n    {\n      \"modelId\": \"<integer>\",\n      \"materialId\": \"<integer>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"modelId\": \"<integer>\",\n      \"materialId\": \"<integer>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"paymentMethod\": \"<string>\",\n  \"shippingOption\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"address3\": \"<string>\",\n  \"incentives\": \"<object>\",\n  \"paymentVerificationId\": \"<string>\",\n  \"manufacturingSpeed\": \"<string>\",\n  \"refNumber\": \"<string>\",\n  \"metadata\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"orderId\": 7554,\n  \"productionOrderIds\": [\n    7517,\n    6944\n  ],\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6f9683b-ab00-4971-a0a2-0db5762df915",
+              "name": "Malformed or invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"country\": \"<string>\",\n  \"state\": \"<string>\",\n  \"city\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"zipCode\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"items\": [\n    {\n      \"modelId\": \"<integer>\",\n      \"materialId\": \"<integer>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"modelId\": \"<integer>\",\n      \"materialId\": \"<integer>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"paymentMethod\": \"<string>\",\n  \"shippingOption\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"address3\": \"<string>\",\n  \"incentives\": \"<object>\",\n  \"paymentVerificationId\": \"<string>\",\n  \"manufacturingSpeed\": \"<string>\",\n  \"refNumber\": \"<string>\",\n  \"metadata\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3bc1fa6-dc69-45e8-a3b2-441d41eb637b",
+              "name": "Missing or invalid OAuth 2.0 bearer token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"country\": \"<string>\",\n  \"state\": \"<string>\",\n  \"city\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"zipCode\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"items\": [\n    {\n      \"modelId\": \"<integer>\",\n      \"materialId\": \"<integer>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"modelId\": \"<integer>\",\n      \"materialId\": \"<integer>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"paymentMethod\": \"<string>\",\n  \"shippingOption\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"address3\": \"<string>\",\n  \"incentives\": \"<object>\",\n  \"paymentVerificationId\": \"<string>\",\n  \"manufacturingSpeed\": \"<string>\",\n  \"refNumber\": \"<string>\",\n  \"metadata\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89c61fd0-fc62-47a0-85ea-16dde39bf19f",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"country\": \"<string>\",\n  \"state\": \"<string>\",\n  \"city\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"zipCode\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"items\": [\n    {\n      \"modelId\": \"<integer>\",\n      \"materialId\": \"<integer>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"modelId\": \"<integer>\",\n      \"materialId\": \"<integer>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"paymentMethod\": \"<string>\",\n  \"shippingOption\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"address3\": \"<string>\",\n  \"incentives\": \"<object>\",\n  \"paymentVerificationId\": \"<string>\",\n  \"manufacturingSpeed\": \"<string>\",\n  \"refNumber\": \"<string>\",\n  \"metadata\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2231e67-2d60-47a4-bb15-7e347c1bb8dc",
+          "name": "List orders",
+          "request": {
+            "name": "List orders",
+            "description": {},
+            "url": {
+              "path": [
+                "orders",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "orderIds",
+                  "value": "<string>",
+                  "description": "Comma-separated list of order ids."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e542c3ad-357d-4b85-9fd8-749f856a906b",
+              "name": "Orders and their status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"ordersCount\": 8941,\n  \"ordersStatus\": {},\n  \"ordersInfo\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f26a9a86-abc7-4e2b-8576-da0f0527cf4d",
+              "name": "Missing or invalid OAuth 2.0 bearer token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a64ac91-cc0d-4e1e-869b-fb8bd6e934e0",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9ed7ddf-7323-4992-bfc2-9b0120a419bf",
+          "name": "Get order information",
+          "request": {
+            "name": "Get order information",
+            "description": {},
+            "url": {
+              "path": [
+                "orders",
+                ":orderId",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Max results (max 100, default 20)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "orderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5d233ad-115e-4e08-8e36-68f841d2e897",
+              "name": "Order detail.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"ordersCount\": 8941,\n  \"ordersStatus\": {},\n  \"ordersInfo\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4aa89e4-0bde-4460-b2dc-4ad193080b83",
+              "name": "Missing or invalid OAuth 2.0 bearer token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32096070-e814-4b27-b316-7c0be336067b",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6893ebbd-1adb-478a-8f37-98bc93c67846",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "orderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.shapeways.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.shapeways.com/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "dd62659d-bb54-466f-8111-68406d43771d",
+    "name": "Shapeways Cart Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shapeways API provides programmatic access to Shapeways' on-demand 3D printing and additive manufacturing platform: browse the material catalog, upload and manage 3D models, retrieve shipping options, and place and track manufacturing orders. Authentication is OAuth 2.0 (client_credentials for single-account apps, authorization_code + refresh_token for multi-user apps). Endpoints are versioned with a trailing /v1 path segment. This document is a faithful transcription of the public API reference published at https://developers.shapeways.com/ — it is not an official Shapeways OpenAPI document.\n\nContact Support:\n Name: Shapeways API\n Email: api@shapeways.com",
+      "type": "text/plain"
+    }
+  }
+}

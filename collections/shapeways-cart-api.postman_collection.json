@@ -1,0 +1,307 @@
+{
+  "item": [
+    {
+      "id": "0f533f0c-bfda-4432-9183-ff8f9b1d373b",
+      "name": "Cart",
+      "description": {
+        "content": "Shipping options for a destination.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a3968aff-011f-458e-a7d7-7d7bc8d51b3a",
+          "name": "Get shipping options",
+          "request": {
+            "name": "Get shipping options",
+            "description": {},
+            "url": {
+              "path": [
+                "cart",
+                "shipping-options",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "(Required) Two-letter ISO 3166 country code."
+                },
+                {
+                  "disabled": false,
+                  "key": "zipCode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6fc9e55a-547c-4818-b71b-b5f524ff1d69",
+              "name": "Available shipping options.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cart",
+                    "shipping-options",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "zipCode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"shippingOptions\": {\n    \"key_0\": {\n      \"shippingOptionId\": 8411,\n      \"price\": 353.3903109407588,\n      \"name\": \"string\",\n      \"inTransitDaysMin\": 9470,\n      \"inTransitDaysMax\": 2832\n    },\n    \"key_1\": {\n      \"shippingOptionId\": 3904,\n      \"price\": 9361.71264391484,\n      \"name\": \"string\",\n      \"inTransitDaysMin\": 5425,\n      \"inTransitDaysMax\": 1894\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e311ccb6-1ebe-4b87-a3f8-a8cae18116f3",
+              "name": "Malformed or invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cart",
+                    "shipping-options",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "zipCode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d98ccfc5-0962-4b60-acd7-89c4cc861020",
+              "name": "Missing or invalid OAuth 2.0 bearer token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cart",
+                    "shipping-options",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "zipCode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "326b6246-0910-4ffd-959b-3c0c9201b037",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cart",
+                    "shipping-options",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "zipCode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\",\n  \"nextActionSuggestions\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.shapeways.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.shapeways.com/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c57a6bdb-cd4b-46a1-b7ca-961fb62b8842",
+    "name": "Shapeways Cart API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Shapeways API provides programmatic access to Shapeways' on-demand 3D printing and additive manufacturing platform: browse the material catalog, upload and manage 3D models, retrieve shipping options, and place and track manufacturing orders. Authentication is OAuth 2.0 (client_credentials for single-account apps, authorization_code + refresh_token for multi-user apps). Endpoints are versioned with a trailing /v1 path segment. This document is a faithful transcription of the public API reference published at https://developers.shapeways.com/ — it is not an official Shapeways OpenAPI document.\n\nContact Support:\n Name: Shapeways API\n Email: api@shapeways.com",
+      "type": "text/plain"
+    }
+  }
+}

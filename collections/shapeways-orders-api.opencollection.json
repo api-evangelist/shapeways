@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shapeways Cart Orders API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.shapeways.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shapeways.com/orders/v1",
+            "params": [
+              {
+                "name": "orderIds",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of order ids."
+              }
+            ]
+          },
+          "docs": "List orders"
+        },
+        {
+          "info": {
+            "name": "Place an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shapeways.com/orders/v1",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Place a manufacturing order for one or more models."
+        },
+        {
+          "info": {
+            "name": "Get order information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shapeways.com/orders/:orderId/v1",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Max results (max 100, default 20)."
+              }
+            ]
+          },
+          "docs": "Get order information"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

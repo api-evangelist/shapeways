@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shapeways Cart Materials API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.shapeways.com/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Materials",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List materials",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shapeways.com/materials/v1"
+          },
+          "docs": "Retrieve information on all available Shapeways materials."
+        },
+        {
+          "info": {
+            "name": "Get material information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shapeways.com/materials/:materialId/v1",
+            "params": [
+              {
+                "name": "materialId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve information on a single material by id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
