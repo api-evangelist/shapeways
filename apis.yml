@@ -49,6 +49,15 @@ tags:
 - Prototyping
 - Hardware
 - Fulfillment
+- E-Commerce
+tags_raw:
+- Company
+- 3D Printing
+- Additive Manufacturing
+- Manufacturing
+- Prototyping
+- Hardware
+- Fulfillment
 - eCommerce
 apis:
 - aid: shapeways:shapeways-cart-api
@@ -87,6 +96,8 @@ apis:
   humanURL: https://developers.shapeways.com/
   baseURL: https://api.shapeways.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
