@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Shapeways Cart Models API
+  title: Shapeways Models API
   version: v1
-  description: 'The Shapeways API provides programmatic access to Shapeways'' on-demand 3D printing and additive manufacturing platform: browse the material catalog, upload and manage 3D models, retrieve shipping options, and place and track manufacturing orders. Authentication is OAuth 2.0 (client_credentials for single-account apps, authorization_code + refresh_token for multi-user apps). Endpoints are versioned with a trailing /v1 path segment. This document is a faithful transcription of the public API reference published at https://developers.shapeways.com/ — it is not an official Shapeways OpenAPI document.'
+  description: 'The Shapeways API provides programmatic access to Shapeways'' on-demand 3D printing and additive manufacturing platform: browse the material catalog, upload and manage 3D models, retrieve shipping options, and place and track manufacturing orders.'
   x-provenance:
     generated: '2026-07-21'
     method: generated
@@ -120,17 +120,6 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
-    ModelList:
-      type: object
-      properties:
-        result:
-          type: string
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/Model'
-        nextActionSuggestions:
-          type: object
     Result:
       type: object
       description: Standard response envelope. All responses carry a result field.
@@ -140,37 +129,15 @@ components:
           description: success or failure.
         nextActionSuggestions:
           type: object
-    Model:
+    ModelList:
       type: object
       properties:
         result:
           type: string
-        modelId:
-          type: integer
-        modelVersion:
-          type: integer
-        title:
-          type: string
-        fileName:
-          type: string
-        contentLength:
-          type: integer
-        fileMd5Checksum:
-          type: string
-        secretKey:
-          type: string
-        claimKey:
-          type: string
-        urls:
-          type: object
-        spin:
-          type: string
-        printable:
-          type: object
-        materials:
-          type: object
-        restrictions:
-          type: object
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
         nextActionSuggestions:
           type: object
     ModelUpload:
@@ -216,9 +183,48 @@ components:
           type: array
           items:
             type: integer
+    Model:
+      type: object
+      properties:
+        result:
+          type: string
+        modelId:
+          type: integer
+        modelVersion:
+          type: integer
+        title:
+          type: string
+        fileName:
+          type: string
+        contentLength:
+          type: integer
+        fileMd5Checksum:
+          type: string
+        secretKey:
+          type: string
+        claimKey:
+          type: string
+        urls:
+          type: object
+        spin:
+          type: string
+        printable:
+          type: object
+        materials:
+          type: object
+        restrictions:
+          type: object
+        nextActionSuggestions:
+          type: object
   responses:
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 bearer token.
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    TooManyRequests:
+      description: Rate limit exceeded.
       content:
         application/json:
           schema:
@@ -229,14 +235,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Result'
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    TooManyRequests:
-      description: Rate limit exceeded.
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 bearer token.
       content:
         application/json:
           schema:

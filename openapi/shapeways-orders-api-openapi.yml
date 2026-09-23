@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Shapeways Cart Orders API
+  title: Shapeways Orders API
   version: v1
-  description: 'The Shapeways API provides programmatic access to Shapeways'' on-demand 3D printing and additive manufacturing platform: browse the material catalog, upload and manage 3D models, retrieve shipping options, and place and track manufacturing orders. Authentication is OAuth 2.0 (client_credentials for single-account apps, authorization_code + refresh_token for multi-user apps). Endpoints are versioned with a trailing /v1 path segment. This document is a faithful transcription of the public API reference published at https://developers.shapeways.com/ — it is not an official Shapeways OpenAPI document.'
+  description: 'The Shapeways API provides programmatic access to Shapeways'' on-demand 3D printing and additive manufacturing platform: browse the material catalog, upload and manage 3D models, retrieve shipping options, and place and track manufacturing orders.'
   x-provenance:
     generated: '2026-07-21'
     method: generated
@@ -113,17 +113,6 @@ components:
           description: success or failure.
         nextActionSuggestions:
           type: object
-    OrderList:
-      type: object
-      properties:
-        result:
-          type: string
-        ordersCount:
-          type: integer
-        ordersStatus:
-          type: object
-        ordersInfo:
-          type: object
     OrderPlaced:
       type: object
       properties:
@@ -199,9 +188,26 @@ components:
           type: integer
         quantity:
           type: integer
+    OrderList:
+      type: object
+      properties:
+        result:
+          type: string
+        ordersCount:
+          type: integer
+        ordersStatus:
+          type: object
+        ordersInfo:
+          type: object
   responses:
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 bearer token.
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    TooManyRequests:
+      description: Rate limit exceeded.
       content:
         application/json:
           schema:
@@ -212,14 +218,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Result'
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    TooManyRequests:
-      description: Rate limit exceeded.
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 bearer token.
       content:
         application/json:
           schema:

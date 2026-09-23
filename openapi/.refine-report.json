@@ -1,10 +1,7 @@
 {
   "provider": "shapeways",
   "sources": [
-    "shapeways-cart-api-openapi.yml",
-    "shapeways-materials-api-openapi.yml",
-    "shapeways-models-api-openapi.yml",
-    "shapeways-orders-api-openapi.yml"
+    "_original/shapeways-openapi.yml"
   ],
   "outputs": [
     "shapeways-cart-api-openapi.yml",
@@ -15,6 +12,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "shapeways-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "shapeways-cart-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shapeways-materials-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shapeways-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shapeways-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
