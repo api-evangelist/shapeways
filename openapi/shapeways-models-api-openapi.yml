@@ -119,27 +119,32 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
+  responses:
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 bearer token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    BadRequest:
+      description: Malformed or invalid request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    TooManyRequests:
+      description: Rate limit exceeded.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
   schemas:
-    Result:
-      type: object
-      description: Standard response envelope. All responses carry a result field.
-      properties:
-        result:
-          type: string
-          description: success or failure.
-        nextActionSuggestions:
-          type: object
-    ModelList:
-      type: object
-      properties:
-        result:
-          type: string
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/Model'
-        nextActionSuggestions:
-          type: object
     ModelUpload:
       type: object
       required:
@@ -216,31 +221,26 @@ components:
           type: object
         nextActionSuggestions:
           type: object
-  responses:
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    TooManyRequests:
-      description: Rate limit exceeded.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    BadRequest:
-      description: Malformed or invalid request.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 bearer token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
+    ModelList:
+      type: object
+      properties:
+        result:
+          type: string
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+        nextActionSuggestions:
+          type: object
+    Result:
+      type: object
+      description: Standard response envelope. All responses carry a result field.
+      properties:
+        result:
+          type: string
+          description: success or failure.
+        nextActionSuggestions:
+          type: object
   securitySchemes:
     oauth2:
       type: oauth2

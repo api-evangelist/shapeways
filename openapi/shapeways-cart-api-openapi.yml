@@ -53,15 +53,6 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
-    Result:
-      type: object
-      description: Standard response envelope. All responses carry a result field.
-      properties:
-        result:
-          type: string
-          description: success or failure.
-        nextActionSuggestions:
-          type: object
     ShippingOption:
       type: object
       properties:
@@ -84,9 +75,18 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/ShippingOption'
+    Result:
+      type: object
+      description: Standard response envelope. All responses carry a result field.
+      properties:
+        result:
+          type: string
+          description: success or failure.
+        nextActionSuggestions:
+          type: object
   responses:
-    TooManyRequests:
-      description: Rate limit exceeded.
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 bearer token.
       content:
         application/json:
           schema:
@@ -97,8 +97,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Result'
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 bearer token.
+    TooManyRequests:
+      description: Rate limit exceeded.
       content:
         application/json:
           schema:
