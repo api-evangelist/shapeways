@@ -106,14 +106,14 @@ components:
         nextActionSuggestions:
           type: object
   responses:
-    NotFound:
-      description: Resource not found.
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 bearer token.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Result'
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 bearer token.
+    NotFound:
+      description: Resource not found.
       content:
         application/json:
           schema:

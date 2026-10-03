@@ -52,7 +52,35 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
+  responses:
+    BadRequest:
+      description: Malformed or invalid request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 bearer token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    TooManyRequests:
+      description: Rate limit exceeded.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
   schemas:
+    ShippingOptions:
+      type: object
+      properties:
+        result:
+          type: string
+        shippingOptions:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ShippingOption'
     ShippingOption:
       type: object
       properties:
@@ -66,15 +94,6 @@ components:
           type: integer
         inTransitDaysMax:
           type: integer
-    ShippingOptions:
-      type: object
-      properties:
-        result:
-          type: string
-        shippingOptions:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ShippingOption'
     Result:
       type: object
       description: Standard response envelope. All responses carry a result field.
@@ -84,25 +103,6 @@ components:
           description: success or failure.
         nextActionSuggestions:
           type: object
-  responses:
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 bearer token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    BadRequest:
-      description: Malformed or invalid request.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    TooManyRequests:
-      description: Rate limit exceeded.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
   securitySchemes:
     oauth2:
       type: oauth2

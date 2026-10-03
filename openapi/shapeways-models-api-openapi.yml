@@ -120,8 +120,8 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   responses:
-    NotFound:
-      description: Resource not found.
+    BadRequest:
+      description: Malformed or invalid request.
       content:
         application/json:
           schema:
@@ -132,8 +132,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Result'
-    BadRequest:
-      description: Malformed or invalid request.
+    NotFound:
+      description: Resource not found.
       content:
         application/json:
           schema:
@@ -145,6 +145,39 @@ components:
           schema:
             $ref: '#/components/schemas/Result'
   schemas:
+    Model:
+      type: object
+      properties:
+        result:
+          type: string
+        modelId:
+          type: integer
+        modelVersion:
+          type: integer
+        title:
+          type: string
+        fileName:
+          type: string
+        contentLength:
+          type: integer
+        fileMd5Checksum:
+          type: string
+        secretKey:
+          type: string
+        claimKey:
+          type: string
+        urls:
+          type: object
+        spin:
+          type: string
+        printable:
+          type: object
+        materials:
+          type: object
+        restrictions:
+          type: object
+        nextActionSuggestions:
+          type: object
     ModelUpload:
       type: object
       required:
@@ -188,39 +221,6 @@ components:
           type: array
           items:
             type: integer
-    Model:
-      type: object
-      properties:
-        result:
-          type: string
-        modelId:
-          type: integer
-        modelVersion:
-          type: integer
-        title:
-          type: string
-        fileName:
-          type: string
-        contentLength:
-          type: integer
-        fileMd5Checksum:
-          type: string
-        secretKey:
-          type: string
-        claimKey:
-          type: string
-        urls:
-          type: object
-        spin:
-          type: string
-        printable:
-          type: object
-        materials:
-          type: object
-        restrictions:
-          type: object
-        nextActionSuggestions:
-          type: object
     ModelList:
       type: object
       properties:
