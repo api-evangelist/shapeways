@@ -106,6 +106,12 @@ components:
         nextActionSuggestions:
           type: object
   responses:
+    TooManyRequests:
+      description: Rate limit exceeded.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
     Unauthorized:
       description: Missing or invalid OAuth 2.0 bearer token.
       content:
@@ -114,12 +120,6 @@ components:
             $ref: '#/components/schemas/Result'
     NotFound:
       description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    TooManyRequests:
-      description: Rate limit exceeded.
       content:
         application/json:
           schema:

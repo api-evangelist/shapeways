@@ -103,43 +103,14 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
-  responses:
-    BadRequest:
-      description: Malformed or invalid request.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 bearer token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    TooManyRequests:
-      description: Rate limit exceeded.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
   schemas:
-    OrderPlaced:
+    Result:
       type: object
+      description: Standard response envelope. All responses carry a result field.
       properties:
         result:
           type: string
-        orderId:
-          type: integer
-        productionOrderIds:
-          type: array
-          items:
-            type: integer
+          description: success or failure.
         nextActionSuggestions:
           type: object
     OrderRequest:
@@ -195,6 +166,28 @@ components:
           type: string
         metadata:
           type: object
+    OrderItem:
+      type: object
+      properties:
+        modelId:
+          type: integer
+        materialId:
+          type: integer
+        quantity:
+          type: integer
+    OrderPlaced:
+      type: object
+      properties:
+        result:
+          type: string
+        orderId:
+          type: integer
+        productionOrderIds:
+          type: array
+          items:
+            type: integer
+        nextActionSuggestions:
+          type: object
     OrderList:
       type: object
       properties:
@@ -206,24 +199,31 @@ components:
           type: object
         ordersInfo:
           type: object
-    OrderItem:
-      type: object
-      properties:
-        modelId:
-          type: integer
-        materialId:
-          type: integer
-        quantity:
-          type: integer
-    Result:
-      type: object
-      description: Standard response envelope. All responses carry a result field.
-      properties:
-        result:
-          type: string
-          description: success or failure.
-        nextActionSuggestions:
-          type: object
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 bearer token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    BadRequest:
+      description: Malformed or invalid request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
   securitySchemes:
     oauth2:
       type: oauth2
