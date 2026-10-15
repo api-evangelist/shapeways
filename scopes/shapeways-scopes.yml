@@ -1,9 +1,40 @@
-generated: '2026-07-21'
-method: derived
-source: openapi/shapeways-openapi.yml
+generated: '2026-10-14'
+method: none
+source: openapi/shapeways-cart-api-openapi.yml, openapi/shapeways-materials-api-openapi.yml,
+  openapi/shapeways-models-api-openapi.yml, openapi/shapeways-orders-api-openapi.yml
 schemes:
 - name: oauth2
-  source: openapi/shapeways-openapi.yml
+  source: openapi/shapeways-cart-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.shapeways.com/oauth2/token
+  - flow: authorizationCode
+    authorizationUrl: https://api.shapeways.com/oauth2/authorize
+    tokenUrl: https://api.shapeways.com/oauth2/token
+  description: OAuth 2.0. client_credentials for single-account apps; authorization_code (+
+    refresh_token) for multi-user apps.
+- name: oauth2
+  source: openapi/shapeways-materials-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.shapeways.com/oauth2/token
+  - flow: authorizationCode
+    authorizationUrl: https://api.shapeways.com/oauth2/authorize
+    tokenUrl: https://api.shapeways.com/oauth2/token
+  description: OAuth 2.0. client_credentials for single-account apps; authorization_code (+
+    refresh_token) for multi-user apps.
+- name: oauth2
+  source: openapi/shapeways-models-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.shapeways.com/oauth2/token
+  - flow: authorizationCode
+    authorizationUrl: https://api.shapeways.com/oauth2/authorize
+    tokenUrl: https://api.shapeways.com/oauth2/token
+  description: OAuth 2.0. client_credentials for single-account apps; authorization_code (+
+    refresh_token) for multi-user apps.
+- name: oauth2
+  source: openapi/shapeways-orders-api-openapi.yml
   flows:
   - flow: clientCredentials
     tokenUrl: https://api.shapeways.com/oauth2/token
@@ -13,3 +44,5 @@ schemes:
   description: OAuth 2.0. client_credentials for single-account apps; authorization_code (+
     refresh_token) for multi-user apps.
 scopes: []
+note: The OAuth2 security scheme(s) in the OpenAPI declare no scopes, and no security requirement
+  references one.
