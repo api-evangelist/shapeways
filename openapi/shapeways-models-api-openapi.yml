@@ -120,15 +120,6 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
-    Result:
-      type: object
-      description: Standard response envelope. All responses carry a result field.
-      properties:
-        result:
-          type: string
-          description: success or failure.
-        nextActionSuggestions:
-          type: object
     Model:
       type: object
       properties:
@@ -162,15 +153,13 @@ components:
           type: object
         nextActionSuggestions:
           type: object
-    ModelList:
+    Result:
       type: object
+      description: Standard response envelope. All responses carry a result field.
       properties:
         result:
           type: string
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/Model'
+          description: success or failure.
         nextActionSuggestions:
           type: object
     ModelUpload:
@@ -216,6 +205,17 @@ components:
           type: array
           items:
             type: integer
+    ModelList:
+      type: object
+      properties:
+        result:
+          type: string
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+        nextActionSuggestions:
+          type: object
   responses:
     TooManyRequests:
       description: Rate limit exceeded.
@@ -223,14 +223,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Result'
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 bearer token.
+    NotFound:
+      description: Resource not found.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Result'
-    NotFound:
-      description: Resource not found.
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 bearer token.
       content:
         application/json:
           schema:

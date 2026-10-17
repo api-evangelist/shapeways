@@ -65,6 +65,25 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
+  responses:
+    TooManyRequests:
+      description: Rate limit exceeded.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 bearer token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Result'
   schemas:
     Material:
       type: object
@@ -87,15 +106,6 @@ components:
           type: object
         nextActionSuggestions:
           type: object
-    MaterialList:
-      type: object
-      properties:
-        result:
-          type: string
-        materials:
-          type: object
-        nextActionSuggestions:
-          type: object
     Result:
       type: object
       description: Standard response envelope. All responses carry a result field.
@@ -105,25 +115,15 @@ components:
           description: success or failure.
         nextActionSuggestions:
           type: object
-  responses:
-    TooManyRequests:
-      description: Rate limit exceeded.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 bearer token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
-    NotFound:
-      description: Resource not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Result'
+    MaterialList:
+      type: object
+      properties:
+        result:
+          type: string
+        materials:
+          type: object
+        nextActionSuggestions:
+          type: object
   securitySchemes:
     oauth2:
       type: oauth2

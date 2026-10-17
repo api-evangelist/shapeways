@@ -52,38 +52,6 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests'
 components:
-  schemas:
-    ShippingOptions:
-      type: object
-      properties:
-        result:
-          type: string
-        shippingOptions:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ShippingOption'
-    Result:
-      type: object
-      description: Standard response envelope. All responses carry a result field.
-      properties:
-        result:
-          type: string
-          description: success or failure.
-        nextActionSuggestions:
-          type: object
-    ShippingOption:
-      type: object
-      properties:
-        shippingOptionId:
-          type: integer
-        price:
-          type: number
-        name:
-          type: string
-        inTransitDaysMin:
-          type: integer
-        inTransitDaysMax:
-          type: integer
   responses:
     TooManyRequests:
       description: Rate limit exceeded.
@@ -103,6 +71,38 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Result'
+  schemas:
+    ShippingOption:
+      type: object
+      properties:
+        shippingOptionId:
+          type: integer
+        price:
+          type: number
+        name:
+          type: string
+        inTransitDaysMin:
+          type: integer
+        inTransitDaysMax:
+          type: integer
+    Result:
+      type: object
+      description: Standard response envelope. All responses carry a result field.
+      properties:
+        result:
+          type: string
+          description: success or failure.
+        nextActionSuggestions:
+          type: object
+    ShippingOptions:
+      type: object
+      properties:
+        result:
+          type: string
+        shippingOptions:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ShippingOption'
   securitySchemes:
     oauth2:
       type: oauth2
